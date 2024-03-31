@@ -96,12 +96,15 @@ class Library:
                 author_list.append(book)  # Append matching author to search result list
 
         # Iterate over search results and call book_info method for each book
-        for item in author_list:
-            print(f"Books by authors that match '{author}':")
-            print("----------------------------------------------------")
-            print()
-            item.book_info()
-            print()
+        if author_list:  # Check to ensure search results list is not empty
+            for item in author_list:
+                print(f"Books by authors that match '{author}':")
+                print("----------------------------------------------------")
+                print()
+                item.book_info()
+                print()
+        else:  # No matching
+            print("No authors matching '{author}'")
 
 
 if __name__ == "__main__":
